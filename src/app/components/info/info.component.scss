@@ -1,0 +1,52 @@
+.container {
+  width: 60%;
+  margin: auto;
+  padding-top: 50px !important;
+  padding-bottom: 80px !important;
+}
+
+.card {
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 0 10px grey;
+  //margin-top: 10px;
+}
+
+.header {
+  width: 100%;
+  //background-color: red;
+  padding: 10px 0px 10px 0px;
+  background-color: #383838;
+  margin-bottom: 20px;
+  color:white;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background-color:#424242;
+  color:white;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+td {
+  font-size: 12px;
+}
+
+td, th {
+  border-bottom: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color:#ebebeb;
+}
+
+

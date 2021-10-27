@@ -1,0 +1,52 @@
+<header class="main-header">
+  <h4>F1 Race Info</h4>
+</header>
+
+<div class="container">
+
+  <div class="card">
+
+      <div  *ngFor="let val of this.data">
+        <div *ngFor="let item of val">
+
+          <div *ngFor="let _res of item; let i = index">
+            <div class="header">
+              <p> {{ _res.season }} - {{ _res.raceName }}</p>
+            </div>
+
+            <table>
+              <tr>
+                <th>Position</th>
+                <th>No</th>
+                <th>Driver</th>
+                <th class="custom-style">Constructor</th>
+                <th class="custom-style">Laps</th>
+                <th class="custom-style">Grid</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th class="custom-style">Points</th>
+              </tr>
+              <tr *ngFor="let res of _res.Results let i = index">
+                <td [ngStyle]="{'background-color': res.positionText == 1 ? '#aecbd1' : 'none'}">{{ res.positionText }}</td>
+                <td [ngStyle]="{'background-color': res.positionText == 1 ? '#aecbd1' : 'none'}">{{ res.number }}</td>
+                <td [ngStyle]="{'background-color': res.positionText == 1 ? '#aecbd1' : 'none'}">{{ res.Driver.driverId }}</td>
+                <td [ngStyle]="{'background-color': res.positionText == 1 ? '#aecbd1' : 'none'}" class="custom-style">{{ res.Constructor.constructorId}}</td>
+                <td [ngStyle]="{'background-color': res.positionText == 1 ? '#aecbd1' : 'none'}" class="custom-style">{{ res.laps }}</td>
+                <td [ngStyle]="{'background-color': res.positionText == 1 ? '#aecbd1' : 'none'}" class="custom-style">{{ res.grid }}</td>
+                <td  *ngIf="res.Time" [ngStyle]="{'background-color': res.positionText == 1 ? '#aecbd1' : 'none'}">{{ res.Time.time }}</td>
+                <td  style="text-decoration: line-through" *ngIf="!res.Time" [ngStyle]="{'background-color': res.positionText == 1 ? '#aecbd1' : 'none'}">Not recorded</td>
+                <td [ngStyle]="{'background-color': res.positionText == 1 ? '#aecbd1' : 'none'}">{{ res.status }}</td>
+                <td [ngStyle]="{'background-color': res.positionText == 1 ? '#aecbd1' : 'none'}" class="custom-style">{{ res.points }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+</div>
+
+<footer class="main-footer">
+  <p>Coded with love by Tyson Moyahabo Motlhabeng for - Mobiquity</p>
+</footer>

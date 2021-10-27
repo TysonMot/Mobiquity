@@ -1,0 +1,83 @@
+<header class="main-header">
+  <h4>F1 Race Info</h4>
+</header>
+
+<div class="container">
+
+  <div class="search-term">
+
+    <label>Select season</label>
+    <select [(ngModel)]="this.searchTerm" (ngModelChange)="search()">
+      <option selected [value]="null" >Open to select session</option>
+      <option *ngFor="let y of this.years" >{{ y }}</option>
+    </select>
+  </div>
+
+  <div class="card">
+
+
+    <div *ngIf="this.searchTerm; else RenderOther">
+      <div *ngFor="let val of this.searchResults">
+        <div *ngFor="let item of val; let i = index">
+          <div >
+            <table>
+              <tr>
+                <th>#</th>
+                <th>Race Date</th>
+                <th>Race Name</th>
+                <th>Round</th>
+                <th>Season</th>
+                <th>Action</th>
+              </tr>
+              <tr *ngFor="let data of item; let x = index">
+                <td> {{ x + 1 }}</td>
+                <td>{{ data.date }}</td>
+                <td>{{ data.raceName }}</td>
+                <td>{{ data.round }}</td>
+                <td>{{ data.season }}</td>
+                <td>
+                  <span (click)="viewData(data.round,data.season)"> Tab to view season details </span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ <ng-template #RenderOther>
+   <div *ngFor="let val of this.seasons">
+     <div *ngFor="let item of val; let i = index">
+       <div >
+         <table>
+           <tr>
+             <th>#</th>
+             <th>Race Date</th>
+             <th>Race Name</th>
+             <th>Round</th>
+             <th>Season</th>
+             <th>Action</th>
+           </tr>
+           <tr *ngFor="let data of item; let x = index">
+             <td> {{ x + 1 }}</td>
+             <td>{{ data.date }}</td>
+             <td>{{ data.raceName }}</td>
+             <td>{{ data.round }}</td>
+             <td>{{ data.season }}</td>
+             <td>
+               <span (click)="viewData(data.round,data.season)"> Tab to view season details </span>
+             </td>
+           </tr>
+         </table>
+       </div>
+     </div>
+   </div>
+ </ng-template>
+
+  </div>
+
+</div>
+
+<footer class="main-footer">
+  <p>Coded with love by Tyson Moyahabo Motlhabeng for - Mobiquity</p>
+</footer>
